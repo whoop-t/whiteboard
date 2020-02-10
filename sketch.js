@@ -3,26 +3,47 @@ setup = () => {
   createCanvas(window.innerWidth, window.innerHeight);
 };
 
+//This will be used to track what mode is selected. e.g draw, erase, etc.
+let mode = 0;
+
 /*Will Draw when you hold the mouse button down */
 /*Will erase when you hold e on keyboard */
+//keyIsPressed && key == 'e') ||
 draw = () => {
-  if (mouseIsPressed) {
+  if (mode === 0) {
     drawLine();
-  } else if (keyIsPressed && key == 'e') {
+  } else if (mode === 1) {
     drawEraser();
   }
 };
 
+const drawMode = () => {
+  mode = 0;
+};
+const eraseMode = () => {
+  mode = 1;
+  console.log(mode);
+};
+
 //Function for drawing style
 const drawLine = () => {
-  strokeWeight(5);
-  stroke(0);
-  line(mouseX, mouseY, pmouseX, pmouseY);
+  if (mouseIsPressed) {
+    strokeWeight(5);
+    stroke(0);
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
 };
 
 //Function for erasing style
 const drawEraser = () => {
-  strokeWeight(100);
-  stroke(255);
-  line(mouseX, mouseY, pmouseX, pmouseY);
+  if (mouseIsPressed) {
+    strokeWeight(100);
+    stroke(255);
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
+};
+
+//Function for clearing canvas
+const clearCanvas = () => {
+  clear();
 };
