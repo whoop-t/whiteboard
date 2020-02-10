@@ -1,3 +1,11 @@
+/**
+ * TODO: Refactor to better fit with oop principles
+ * TODO: Add Socket.io for live whiteboarding
+ * TODO: Create ability to have rooms with users
+ * TODO: Create being able to have username
+ * TODO: Create private/invite only whiteboard session/rooms
+ */
+
 /* Setup the canvas for drawing, using P5 js */
 setup = () => {
   createCanvas(window.innerWidth, window.innerHeight);
@@ -6,9 +14,8 @@ setup = () => {
 //This will be used to track what mode is selected. e.g draw, erase, etc.
 let mode = 0;
 
-/*Will Draw when you hold the mouse button down */
-/*Will erase when you hold e on keyboard */
-//keyIsPressed && key == 'e') ||
+/*Will Draw when mode 0 */
+/*Will erase when mode 1 */
 draw = () => {
   if (mode === 0) {
     drawLine();
@@ -17,12 +24,14 @@ draw = () => {
   }
 };
 
+//Switches to draw mode
 const drawMode = () => {
   mode = 0;
 };
+
+//Switches to erase mode
 const eraseMode = () => {
   mode = 1;
-  console.log(mode);
 };
 
 //Function for drawing style
@@ -45,5 +54,6 @@ const drawEraser = () => {
 
 //Function for clearing canvas
 const clearCanvas = () => {
+  mode = 0;
   clear();
 };
