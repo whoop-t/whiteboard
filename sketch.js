@@ -4,9 +4,16 @@ setup = () => {
 
 draw = () => {
   if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
+    strokeWeight(5);
+    stroke(0);
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  } else if (keyIsPressed && key == 'e') {
+    drawEraser();
   }
-  ellipse(mouseX, mouseY, 80, 80);
+};
+
+const drawEraser = () => {
+  strokeWeight(100);
+  stroke(255);
+  line(mouseX, mouseY, pmouseX, pmouseY);
 };
