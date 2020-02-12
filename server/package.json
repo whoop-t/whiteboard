@@ -1,0 +1,19 @@
+{
+  "name": "whiteboard-server",
+  "version": "1.0.0",
+  "description": "server for whiteboard",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "whoop-t",
+  "license": "ISC"
+}
