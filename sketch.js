@@ -1,5 +1,4 @@
 /**
- * TODO: Refactor to better fit with oop principles
  * TODO: Add Socket.io for live whiteboarding
  * TODO: Create ability to have rooms with users
  * TODO: Create being able to have username
@@ -18,8 +17,10 @@ let mode = 0;
 /*Will erase when mode 1 */
 draw = () => {
   if (mode === 0) {
+    cursor('resources/icons8-pencil-24.png');
     drawLine();
   } else if (mode === 1) {
+    cursor('resources/icons8-eraser-50.png');
     drawEraser();
   }
 };
