@@ -26,7 +26,7 @@ socket.on('erase', data => {
   line(data.x, data.y, data.pX, data.pY);
 });
 socket.on('clear', () => {
-  clearCanvas();
+  clear();
 });
 
 //This will be used to track what mode is selected. e.g draw, erase, etc.
