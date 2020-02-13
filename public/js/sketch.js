@@ -16,7 +16,7 @@ setup = () => {
 //socket.on will be called on successful emit received
 socket.on('draw', data => {
   strokeWeight(5);
-  stroke(0);
+  stroke(color(102, 0, 255));
   line(data.x, data.y, data.pX, data.pY);
 });
 socket.on('erase', data => {
@@ -27,19 +27,12 @@ socket.on('erase', data => {
 socket.on('clear', () => {
   clear();
 });
-socket.on('drawing', data => {
-  console.log(data);
-  feedback.innerHTML = '<p><em>' + data + ' is whiteboarding...</em></p>';
-  setTimeout(() => {
-    feedback.innerHTML = '';
-  }, 1000);
-});
 
 //This will be used to track what mode is selected. e.g draw, erase, etc.
-let mode = 0;
-
 /*Will Draw when mode 0 */
 /*Will erase when mode 1 */
+let mode = 0;
+
 draw = () => {
   if (mode === 0) {
     cursor('../resources/icons8-pencil-24.png');
