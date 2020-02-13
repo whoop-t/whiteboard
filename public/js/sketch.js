@@ -7,7 +7,7 @@
 /**
  * Socket Connection
  */
-const socket = io.connect('http://localhost:4000');
+const socket = io.connect('https://whiteboard-io.herokuapp.com/');
 
 /* Setup the canvas for drawing, using P5 js */
 setup = () => {
