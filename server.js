@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const socket = require('socket.io');
-const port = process.env.PORT || 4000;
+
 //Setting up server
 const app = express();
+const port = process.env.PORT || 4000;
+
 const server = app.listen(port, () => {
-  console.log(`Listening on port ${process.env.PORT}...`);
+  console.log(`Listening on port ${port}...`);
 });
 
 //Static files
