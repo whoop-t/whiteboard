@@ -98,7 +98,7 @@ const clearCanvas = () => {
 
 //!
 /**
- * Functions for opening and closing the hamburger menu on mobile
+ * Functions for opening and closing the hamburger menu small displays
  * **/
 
 function w3_open() {
