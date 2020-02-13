@@ -9,7 +9,7 @@ const server = app.listen(port, () => {
 });
 
 //Static files
-app.use(express.static('../public'));
+app.use(express.static('./public'));
 
 //Socket Setup
 const io = socket(server);
