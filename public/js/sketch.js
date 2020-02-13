@@ -1,5 +1,4 @@
 /**
- * TODO: Add Socket.io for live whiteboarding
  * TODO: Create ability to have rooms with users
  * TODO: Create being able to have username
  * TODO: Create private/invite only whiteboard session/rooms
@@ -14,7 +13,7 @@ const socket = io.connect('http://localhost:4000');
 setup = () => {
   createCanvas(window.innerWidth, window.innerHeight);
 };
-
+//socket.on will be called on successful emit received
 socket.on('draw', data => {
   strokeWeight(5);
   stroke(0);
@@ -27,6 +26,13 @@ socket.on('erase', data => {
 });
 socket.on('clear', () => {
   clear();
+});
+socket.on('drawing', data => {
+  console.log(data);
+  feedback.innerHTML = '<p><em>' + data + ' is whiteboarding...</em></p>';
+  setTimeout(() => {
+    feedback.innerHTML = '';
+  }, 1000);
 });
 
 //This will be used to track what mode is selected. e.g draw, erase, etc.
@@ -109,34 +115,3 @@ function w3_open() {
 function w3_close() {
   document.getElementById('mySidebar').style.display = 'none';
 }
-
-/////////
-
-// let canvas = document.getElementById('canvas'),
-//   handle = document.getElementById('handle'),
-//   btn = document.getElementById('send'),
-//   output = document.getElementById('output'),
-//   feedback = document.getElementById('feedback');
-
-// Emit events
-// btn.addEventListener('click', () => {
-//   socket.emit('canvas', {
-//     canvas: canvas.value,
-//     handle: handle.value
-//   });
-// });
-
-// message.addEventListener('mousepress', () => {
-//   socket.emit('drawing', handle.value);
-// });
-
-// // Listen for events
-// socket.on('chat', data => {
-//   feedback.innerHTML = '';
-//   output.innerHTML +=
-//     '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
-// });
-
-// socket.on('typing', data => {
-//   feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
-// });
